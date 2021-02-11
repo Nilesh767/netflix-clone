@@ -3,6 +3,10 @@
   margin-left: 20px;
 }
 
+.row > h2 {
+  margin-left: 20px;
+}
+
 .row__posters {
   display: flex;
   overflow-y: hidden;
@@ -15,7 +19,7 @@
 }
 
 .row__poster {
-  max-height: 100px;
+  max-height: 150px;
   object-fit: contain;
   margin-right: 10px;
   width: 100%;
@@ -28,5 +32,5 @@
 }
 
 .row__posterLarge {
-  max-width: 250px;
+  max-width: 400px;
 }

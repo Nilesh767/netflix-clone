@@ -6,7 +6,7 @@ function Nav() {
   const [show, setShow] = useState(false);
 
   const transitionNavBar = () => {
-    window.scrollY > 100 ? setShow(true) : setShow(false);
+    window.scrollY > 150 ? setShow(true) : setShow(false);
   };
 
   useEffect(() => {

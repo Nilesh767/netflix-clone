@@ -29,10 +29,13 @@ const Banner = () => {
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundPosition: "center center",
+        backgroundPosition: "inherit",
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
       }}
     >
+      <br />
+      <br />
+      <br />
       <div className="banner__contents">
         <h1 className="banner__title">
           {movie?.title || movie?.name || movie?.original_name}
