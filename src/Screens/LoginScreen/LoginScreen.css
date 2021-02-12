@@ -106,3 +106,39 @@
     margin: 10px;
   }
 }
+
+@media only screen and (max-width: 480px) {
+  .loginScreen__logo {
+    width: 100px;
+    top: 25px;
+    left: 10px;
+    padding-left: 10px;
+  }
+
+  .loginScreen_signInBtn {
+    right: 15px;
+    top: 20px;
+    font-size: 0.7rem;
+  }
+
+  .loginScreen__body {
+    top: 25%;
+  }
+
+  .loginScreen__input > form > input {
+    min-width: 150px;
+  }
+
+  .loginScreen__body > h1 {
+    font-size: 2.2rem;
+  }
+  
+  .loginScreen__body > h2 {
+    font-size: 1.5rem;
+  }
+  
+  .loginScreen__body > h3 {
+    font-size: 1rem;
+  }
+
+}
