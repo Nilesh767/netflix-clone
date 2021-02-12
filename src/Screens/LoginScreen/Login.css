@@ -1,4 +1,4 @@
-.loginScreen {
+.login {
   position: relative;
   height: 100%;
   background: url("https://assets.nflxext.com/ffe/siteui/vlv3/8ef88e03-6f89-4c75-ae51-f8da7d252358/028d050e-d3f4-4e70-8ac3-1269026601b2/IN-en-20210208-popsignuptwoweeks-perspective_alpha_website_small.jpg")
@@ -6,7 +6,7 @@
   background-size: cover;
 }
 
-.loginScreen__gradient {
+.login__gradient {
   width: 100%;
   z-index: 1;
   height: 100vh;
@@ -19,7 +19,7 @@
   );
 }
 
-.loginScreen__logo {
+.login__logo {
   position: fixed;
   object-fit: contain;
   width: 150px;
@@ -28,7 +28,7 @@
   padding-left: 20px;
 }
 
-.loginScreen_signInBtn {
+.login__signInBtn {
   position: fixed;
   cursor: pointer;
   right: 40px;
@@ -42,7 +42,7 @@
   border-radius: 4px;
 }
 
-.loginScreen__body {
+.login__body {
   position: absolute;
   color: #fff;
   z-index: 1;
@@ -53,27 +53,27 @@
   text-align: center;
 }
 
-.loginScreen__body > h1 {
+.login__body > h1 {
   font-size: 3.125rem;
   margin-bottom: 20px;
 }
 
-.loginScreen__body > h2 {
+.login__body > h2 {
   font-size: 2rem;
   font-weight: 400;
   margin-bottom: 30px;
 }
 
-.loginScreen__body > h3 {
+.login__body > h3 {
   font-size: 1.3rem;
   font-weight: 400;
 }
 
-.loginScreen__input {
+.login__input {
   margin: 20px 20px;
 }
 
-.loginScreen__input > form > input {
+.login__input > form > input {
   min-width: 350px;
   padding: 11px 10px 10px 11px;
   outline-width: 0;
@@ -83,7 +83,7 @@
   max-width: 600px;
 }
 
-.loginScreen__getStarted {
+.login__getStarted {
   min-width: 40px;
   margin-left: 5px;
   padding: 16px 20px;
@@ -96,48 +96,48 @@
 }
 
 @media only screen and (min-width: 1023px) {
-  .loginScreen__body {
+  .login__body {
     margin-left: 15%;
   }
 }
 
 @media only screen and (max-width: 640px) {
-  .loginScreen__getStarted {
+  .login__getStarted {
     margin: 10px;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .loginScreen__logo {
+  .login__logo {
     width: 100px;
     top: 25px;
     left: 10px;
     padding-left: 10px;
   }
 
-  .loginScreen_signInBtn {
+  .login__signInBtn {
     right: 15px;
     top: 20px;
     font-size: 0.7rem;
   }
 
-  .loginScreen__body {
+  .login__body {
     top: 25%;
   }
 
-  .loginScreen__input > form > input {
+  .login__input > form > input {
     min-width: 150px;
   }
 
-  .loginScreen__body > h1 {
+  .login__body > h1 {
     font-size: 2.2rem;
   }
   
-  .loginScreen__body > h2 {
+  .login__body > h2 {
     font-size: 1.5rem;
   }
   
-  .loginScreen__body > h3 {
+  .login__body > h3 {
     font-size: 1rem;
   }
 

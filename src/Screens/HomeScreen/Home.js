@@ -2,11 +2,11 @@ import React from "react";
 import requests from "../../Requests";
 import Banner from "../../Components/UI/Banner/Banner";
 
-import "./Homescreen.css";
+import "./Home.css";
 import Nav from "../../Components/UI/NavBar/Nav";
 import Row from "../../Components/UI/Rows/Row";
 
-function Homescreen() {
+function Home() {
   return (
     <div>
       <Nav />
@@ -27,4 +27,4 @@ function Homescreen() {
   );
 }
 
-export default Homescreen;
+export default Home;

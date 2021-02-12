@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Homescreen from "./Screens/Homescreen/Homescreen";
+import Home from "./Screens/HomeScreen/Home";
 
 import "./App.css";
-import LoginScreen from "./Screens/LoginScreen/LoginScreen";
+import Login from "./Screens/LoginScreen/Login";
 
 function App() {
+  // const user = null;
+  useEffect(() => {
+    console.log("render");
+  }, []);
   return (
     <div className="app">
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Homescreen />
+            <Home />
           </Route>
           <Route path="/login">
-            <LoginScreen />
+            <Login />
           </Route>
         </Switch>
       </BrowserRouter>
