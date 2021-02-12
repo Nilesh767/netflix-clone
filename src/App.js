@@ -1,13 +1,24 @@
 import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Homescreen from "./Homescreen/Homescreen";
+import Homescreen from "./Screens/Homescreen/Homescreen";
 
 import "./App.css";
+import LoginScreen from "./Screens/LoginScreen/LoginScreen";
 
 function App() {
   return (
     <div className="app">
-      <Homescreen />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Homescreen />
+          </Route>
+          <Route path="/login">
+            <LoginScreen />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
