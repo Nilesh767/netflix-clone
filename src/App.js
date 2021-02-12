@@ -5,9 +5,23 @@ import Home from "./Screens/HomeScreen/Home";
 
 import "./App.css";
 import Login from "./Screens/LoginScreen/Login";
+import { auth } from "./Firebase/firebase";
 
 function App() {
-  // const user = null;
+  const user = null;
+
+  useEffect(() => {
+    const unSubscribe = auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        //logged in
+        console.log("logged in");
+      } else {
+        //not logged in
+      }
+    });
+    return unSubscribe;
+  }, []);
+
   useEffect(() => {
     console.log("render");
   }, []);

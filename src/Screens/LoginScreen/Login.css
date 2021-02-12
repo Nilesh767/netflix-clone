@@ -105,6 +105,10 @@
   .login__getStarted {
     margin: 10px;
   }
+
+  .login__body {
+    top: 15%;
+  }
 }
 
 @media only screen and (max-width: 480px) {

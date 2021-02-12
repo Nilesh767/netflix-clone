@@ -5,7 +5,7 @@ import SignUp from "../SignUpScreen/SignUp";
 import "./Login.css";
 
 const Login = () => {
-  const [signedIn, setSignedIn] = useState(false);
+  const [signIn, setSignIn] = useState(false);
 
   return (
     <div className="login">
@@ -16,10 +16,10 @@ const Login = () => {
           src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg"
           alt="Netflix Logo"
         />
-        <button className="login__signInBtn" onClick={() => setSignedIn(true)}>
+        <button className="login__signInBtn" onClick={() => setSignIn(true)}>
           Sign In
         </button>
-        {signedIn ? (
+        {signIn ? (
           <SignUp />
         ) : (
           <div className="login__body">
@@ -33,7 +33,10 @@ const Login = () => {
               <div className="login__input">
                 <form>
                   <input type="email" placeholder="Email Address" />
-                  <button className="login__getStarted">
+                  <button
+                    className="login__getStarted"
+                    onClick={() => setSignIn(true)}
+                  >
                     Get Started &gt;
                   </button>
                 </form>
