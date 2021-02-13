@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "./Firebase/firebase";
+
+import { login, logout, selectUser } from "./features/userSlice";
 
 import Home from "./Screens/HomeScreen/Home";
+import Login from "./Screens/LoginScreen/Login";
+import Profile from "./Screens/ProfileScreen/Profile";
 
 import "./App.css";
-import Login from "./Screens/LoginScreen/Login";
-import { auth } from "./Firebase/firebase";
-import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser } from "./features/userSlice";
 
 function App() {
   const user = useSelector(selectUser);
@@ -23,7 +25,7 @@ function App() {
           })
         );
       } else {
-        dispatch(logout);
+        dispatch(logout());
       }
     });
     return unSubscribe;
@@ -39,6 +41,9 @@ function App() {
           <Login />
         ) : (
           <Switch>
+            <Route path="/editProfile">
+              <Profile />
+            </Route>
             <Route exact path="/">
               <Home />
             </Route>
