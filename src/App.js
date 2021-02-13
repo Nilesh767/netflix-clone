@@ -7,7 +7,7 @@ import { login, logout, selectUser } from "./features/userSlice";
 
 import Home from "./Screens/HomeScreen/Home";
 import Login from "./Screens/LoginScreen/Login";
-import Profile from "./Screens/ProfileScreen/Profile";
+import EditProfile from "./Screens/EditProfileScreen/EditProfile";
 
 import "./App.css";
 
@@ -31,9 +31,6 @@ function App() {
     return unSubscribe;
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log("render");
-  }, []);
   return (
     <div className="app">
       <BrowserRouter>
@@ -42,7 +39,7 @@ function App() {
         ) : (
           <Switch>
             <Route path="/editProfile">
-              <Profile />
+              <EditProfile />
             </Route>
             <Route exact path="/">
               <Home />

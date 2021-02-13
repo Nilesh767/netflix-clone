@@ -20,7 +20,6 @@ const Login = () => {
         <button
           className="login__signInBtn"
           onClick={() => setSignIn(true)}
-          setEmailData=""
         >
           Sign In
         </button>
