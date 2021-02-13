@@ -6,6 +6,7 @@ import "./Login.css";
 
 const Login = () => {
   const [signIn, setSignIn] = useState(false);
+  const [emailData, setEmailData] = useState("");
 
   return (
     <div className="login">
@@ -16,11 +17,15 @@ const Login = () => {
           src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg"
           alt="Netflix Logo"
         />
-        <button className="login__signInBtn" onClick={() => setSignIn(true)}>
+        <button
+          className="login__signInBtn"
+          onClick={() => setSignIn(true)}
+          setEmailData=""
+        >
           Sign In
         </button>
         {signIn ? (
-          <SignUp />
+          <SignUp emailData={emailData} />
         ) : (
           <div className="login__body">
             <>
@@ -32,9 +37,14 @@ const Login = () => {
               </h3>
               <div className="login__input">
                 <form>
-                  <input type="email" placeholder="Email Address" />
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    onChange={(e) => setEmailData(e.target.value)}
+                  />
                   <button
                     className="login__getStarted"
+                    type="submit"
                     onClick={() => setSignIn(true)}
                   >
                     Get Started &gt;

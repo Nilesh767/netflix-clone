@@ -3,7 +3,7 @@ import { auth } from "../../Firebase/firebase";
 
 import "./SignUp.css";
 
-const SignUp = () => {
+const SignUp = ({ emailData }) => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -42,7 +42,12 @@ const SignUp = () => {
     <div className="signup">
       <form>
         <h1>Sign In</h1>
-        <input ref={emailRef} placeholder="Email" type="email" />
+        <input
+          ref={emailRef}
+          placeholder="Email Address"
+          defaultValue={emailData}
+          type="email"
+        />
         <input ref={passwordRef} placeholder="Password" type="password" />
         <button type="submit" onClick={signIn}>
           Sign In
