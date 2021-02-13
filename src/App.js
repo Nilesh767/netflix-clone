@@ -6,21 +6,28 @@ import Home from "./Screens/HomeScreen/Home";
 import "./App.css";
 import Login from "./Screens/LoginScreen/Login";
 import { auth } from "./Firebase/firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "./features/userSlice";
 
 function App() {
-  const user = null;
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const unSubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
-        //logged in
-        console.log("logged in");
+        dispatch(
+          login({
+            uid: userAuth.uid,
+            email: userAuth.email,
+          })
+        );
       } else {
-        //not logged in
+        dispatch(logout);
       }
     });
     return unSubscribe;
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     console.log("render");
@@ -28,14 +35,15 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-        </Switch>
+        {!user ? (
+          <Login />
+        ) : (
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        )}
       </BrowserRouter>
     </div>
   );
