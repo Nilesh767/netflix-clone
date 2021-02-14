@@ -22,15 +22,7 @@
   object-fit: contain;
   width: 110px;
   top: 15px;
-  left: 0;
+  left: 5px;
   padding-left: 10px;
-  cursor: pointer;
-}
-
-.nav__avatar {
-  object-fit: contain;
-  position: fixed;
-  right: 20px;
-  width: 30px;
   cursor: pointer;
 }

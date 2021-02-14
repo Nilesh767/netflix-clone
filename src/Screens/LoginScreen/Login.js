@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import NetflixLogo from "../../Components/UI/NavBar/Logo/NetflixLogo";
 
 import SignUp from "../SignUpScreen/SignUp";
 
@@ -12,11 +13,9 @@ const Login = () => {
     <div className="login">
       <div className="login__bg">
         <div className="login__gradient" />
-        <img
-          className="login__logo"
-          src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg"
-          alt="Netflix Logo"
-        />
+        <div className="login__logo">
+          <NetflixLogo  />
+        </div>
         <button
           className="login__signInBtn"
           onClick={() => setSignIn(true)}
