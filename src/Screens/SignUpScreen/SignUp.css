@@ -26,21 +26,25 @@
 
 @media only screen and (max-width: 800px) {
   .signup {
-    top: 25%;
     left: 27%;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .signup {
-    top: 25%;
+    top: 20%;
     left: 6.5%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .signup {
+    left: 3%;
   }
 }
 
 @media only screen and (max-width: 376px) {
   .signup {
-    top: 25%;
     left: 0.5%;
   }
 }

@@ -31,7 +31,7 @@ const Banner = () => {
       style={{
         backgroundSize: "cover",
         backgroundPosition: "inherit",
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/w1280/${movie?.backdrop_path}")`,
       }}
     >
       <br />

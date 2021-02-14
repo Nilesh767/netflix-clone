@@ -7,7 +7,6 @@ const SignUp = ({ emailData }) => {
   const [isSignUp, setIsSignUp] = useState(false);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const nameRef = useRef(null);
 
   const signIn = (event) => {
     event.preventDefault();
@@ -34,7 +33,7 @@ const SignUp = ({ emailData }) => {
         passwordRef.current.value
       )
       .then((authUser) => {
-        console.log(nameRef);
+        console.log(authUser);
       })
       .catch((error) => {
         alert(error.message);
