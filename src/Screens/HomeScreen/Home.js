@@ -4,16 +4,14 @@ import requests from "../../Requests";
 import Banner from "../../Components/UI/Banner/Banner";
 import Nav from "../../Components/UI/NavBar/Nav";
 import Row from "../../Components/UI/Rows/Row";
-import Avatar from "../../Components/UI/NavBar/Avatar/Avatar";
 
 import "./Home.css";
 
 function Home() {
   return (
     <div>
-      <Nav />
-      <div className="nav__avatar">
-        <Avatar />
+      <div>
+        <Nav />
       </div>
       <Banner />
       <Row

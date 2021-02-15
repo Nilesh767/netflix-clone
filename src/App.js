@@ -7,6 +7,7 @@ import { login, logout, selectUser } from "./features/userSlice";
 
 import Home from "./Screens/HomeScreen/Home";
 import Login from "./Screens/LoginScreen/Login";
+import Profiles from "./Screens/Profiles/Profiles";
 import EditProfile from "./Screens/EditProfileScreen/EditProfile";
 
 import "./App.css";
@@ -40,6 +41,9 @@ function App() {
           <Switch>
             <Route path="/editProfile">
               <EditProfile />
+            </Route>
+            <Route path="/profiles">
+              <Profiles />
             </Route>
             <Route exact path="/">
               <Home />

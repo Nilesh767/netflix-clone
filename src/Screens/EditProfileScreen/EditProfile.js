@@ -4,17 +4,18 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 import { auth } from "../../Firebase/firebase";
 
-import Nav from "../../Components/UI/NavBar/Nav";
-
 import "./EditProfile.css";
 import { avatar } from "../../Components/UI/NavBar/Avatar/Avatar";
+import NetflixLogo from "../../Components/UI/NavBar/Logo/NetflixLogo";
 
 const EditProfile = () => {
   const user = useSelector(selectUser);
 
   return (
     <div className="EditProfile">
-      <Nav />
+      <div className="login__logo">
+        <NetflixLogo />
+      </div>
       <div className="EditProfile__body">
         <h1>Edit Profile</h1>
         <div className="EditProfile__info">

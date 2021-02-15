@@ -8,14 +8,16 @@ const avatar = generator.generateRandomAvatar();
 const Avatar = () => {
   const history = useHistory();
   return (
-    <img
-      style={{ width: "30px" }}
-      src={avatar}
-      alt="Avatar"
-      onClick={() => {
-        history.push("/editProfile");
-      }}
-    />
+    <div>
+      <img
+        style={{ width: "30px" }}
+        src={avatar}
+        alt="Avatar"
+        onClick={() => {
+          history.push("/editProfile");
+        }}
+      />
+    </div>
   );
 };
 

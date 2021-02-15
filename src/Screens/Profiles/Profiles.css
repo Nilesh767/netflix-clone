@@ -1,0 +1,10 @@
+.profiles {
+  height: 100vh;
+  color: white;
+  background-color: black;
+}
+
+.profiles > img {
+  padding-left: 600px;
+  padding-top: 200px;
+}
