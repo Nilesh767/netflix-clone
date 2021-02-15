@@ -9,14 +9,16 @@ const Avatar = () => {
   const history = useHistory();
   return (
     <img
-      // style={{ width: "30px" }}
+      style={{ width: "30px" }}
       src={avatar}
-      alt="Netflix Avatar"
+      alt="Avatar"
       onClick={() => {
         history.push("/editProfile");
       }}
     />
   );
 };
+
+export { avatar };
 
 export default Avatar;

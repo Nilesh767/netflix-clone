@@ -7,7 +7,7 @@ import { auth } from "../../Firebase/firebase";
 import Nav from "../../Components/UI/NavBar/Nav";
 
 import "./EditProfile.css";
-import Avatar from "../../Components/UI/NavBar/Avatar/Avatar";
+import { avatar } from "../../Components/UI/NavBar/Avatar/Avatar";
 
 const EditProfile = () => {
   const user = useSelector(selectUser);
@@ -18,7 +18,7 @@ const EditProfile = () => {
       <div className="EditProfile__body">
         <h1>Edit Profile</h1>
         <div className="EditProfile__info">
-          <Avatar />
+          <img src={avatar} alt="Avatar" />
           <div className="EditProfile__details">
             <h2>{user.email}</h2>
             <div className="EditProfile__plans">
