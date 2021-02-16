@@ -18,26 +18,17 @@ const Profiles = () => {
       <div className="profiles__body">
         <h1>Who's watching?</h1>
         <div className="profiles__container">
-          <div className="profiles__profile">
+          <div className="profiles__profile ">
             <img src={avatar1} alt="avatar" />
-            <h3 className="profile__name">Neo</h3>
+            <h3>Neo</h3>
           </div>
-          <div className="profiles__profile">
+          <div className="profiles__profile  ">
             <img src={avatar2} alt="avatar" />
-            <h3 className="profile__name">Neon</h3>
+            <h3>Neon</h3>
           </div>
-          <div className="profiles__profile">
+          <div className="profiles__profile ">
             <img src={avatar3} alt="avatar" />
-            <h3 className="profile__name">Nil</h3>
-          </div>
-          <div className="profiles__profile">
-            <div className="profile__add">
-              <img
-                src="https://www.materialui.co/materialIcons/content/add_circle_grey_192x192.png"
-                alt="plus icon"
-              />
-            </div>
-            <h3 className="profile__addProfile">Add Profile</h3>
+            <h3>Nil</h3>
           </div>
         </div>
       </div>
