@@ -3,13 +3,14 @@
   color: #fff;
 }
 
-.login__logo {
+.Netflix__logo {
   position: fixed;
   object-fit: contain;
   width: 150px;
   top: 45px;
   left: 40px;
   padding-left: 20px;
+  cursor: pointer;
 }
 
 .EditProfile__body {

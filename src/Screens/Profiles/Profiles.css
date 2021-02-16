@@ -1,10 +1,103 @@
 .profiles {
-  height: 100vh;
-  color: white;
-  background-color: black;
+  min-height: 100vh;
 }
 
-.profiles > img {
-  padding-left: 600px;
-  padding-top: 200px;
+.Netflix__logo {
+  position: fixed;
+  object-fit: contain;
+  width: 150px;
+  top: 45px;
+  left: 40px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.profiles__body {
+  width: 70%;
+  height: 100%;
+  padding-top: 150px;
+  padding-left: 15%;
+  padding-right: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profiles__body > h1 {
+  color: #fff;
+  font-size: 3rem;
+  padding-bottom: 40px;
+}
+
+.profiles__body > h1:hover {
+  transition: all 1s;
+  color: #e50914;
+}
+
+.profiles__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+}
+
+.profiles__profile {
+  position: relative;
+  background-size: cover;
+}
+
+.profiles__profile > img {
+  padding-left: 20px;
+  width: 165px;
+  height: 165px;
+}
+
+.profiles__profile > svg {
+  padding-left: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  padding: 9px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.profile__name {
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  transform: translateX(-50%);
+  color: #e50914;
+  opacity: 0.8;
+}
+
+.profile__add {
+  height: 120px;
+}
+
+.profile__add > img {
+  padding-left: 20px;
+  width: 165px;
+  height: 165px;
+}
+
+.profile__addProfile {
+  position: relative;
+  transform: translateX(30%);
+  bottom: -53px;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.profile__addProfile:hover {
+  transition: all 0.5s;
+  color: #e50914;
 }

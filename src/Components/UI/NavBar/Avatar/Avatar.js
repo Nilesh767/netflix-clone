@@ -1,9 +1,9 @@
 import { useHistory } from "react-router-dom";
 import { AvatarGenerator } from "random-avatar-generator";
 
-const generator = new AvatarGenerator();
+export const generator = new AvatarGenerator();
 
-const avatar = generator.generateRandomAvatar();
+export const avatar = generator.generateRandomAvatar();
 
 const Avatar = () => {
   const history = useHistory();
@@ -20,7 +20,5 @@ const Avatar = () => {
     </div>
   );
 };
-
-export { avatar };
 
 export default Avatar;

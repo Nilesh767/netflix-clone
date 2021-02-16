@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+// import SearchIcon from "@material-ui/icons/Search";
 
 import { auth } from "../../../Firebase/firebase";
 import { avatar } from "./Avatar/Avatar";
@@ -11,6 +12,10 @@ import "./Nav.css";
 const Nav = () => {
   const [show, handleShow] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  // const [input, setInput] = useState("");
+  // const inputEl = useRef(null);
+  // const searchEl = useRef(null);
+  // const [searchOpen, setSearchOpen] = useState(false);
 
   const history = useHistory();
 
@@ -21,6 +26,38 @@ const Nav = () => {
       handleShow(false);
     }
   };
+
+  // const searchQuery = (query) => {
+  //   history.push("/");
+  //   // axios
+  //   //   .get(fetchSearchString(query))
+  //   //   .then((response) => {
+  //   //     if (response.data.total_results < 1) {
+  //   //       toast.warning("No Results Found!");
+  //   //       setLoading(false);
+  //   //     } else {
+  //   //       setSearchResult(response.data.results);
+  //   //     }
+  //   //   })
+  //   //   .catch((err) => errorOccurred(err));
+  // };
+
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   searchQuery(input);
+  //   setSearchOpen(false);
+  //   inputEl.current.blur();
+  //   // setLoading(true);
+  //   setTimeout(() => setInput(""), 100);
+  // };
+
+  // const searchClick = () => {
+  //   setSearchOpen(true);
+  //   setTimeout(() => {
+  //     inputEl.current.focus();
+  //   }, 300);
+  // };
 
   const handleDropdown = () => {
     if (!dropdown) {
@@ -46,9 +83,36 @@ const Nav = () => {
             <li onClick={() => history.push("/")}>Home</li>
             <li>TV Shows</li>
             <li>Movies</li>
-            <li>News & Popular</li>
+            <li>New & Popular</li>
           </ul>
         </div>
+        {/* <div className="nav__searchBar">
+          <ul>
+            <li
+              className={`app__search mobile ${
+                searchOpen || input ? "open" : ""
+              }`}
+              onClick={searchClick}
+            >
+              <SearchIcon
+                style={{ fontSize: 20 }}
+                className="app__searchIcon"
+                onClick={searchClick}
+              />
+              <form>
+                <input
+                  ref={inputEl}
+                  type="search"
+                  value={input}
+                  onBlur={() => setSearchOpen(false)}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Search..."
+                />
+                <button onClick={(e) => handleSearch(e)} type="submit"></button>
+              </form>
+            </li>
+          </ul>
+        </div> */}
         <div className="nav__contents2">
           <div className="nav__contents2-profile" onClick={handleDropdown}>
             <div className="nav__avatar">

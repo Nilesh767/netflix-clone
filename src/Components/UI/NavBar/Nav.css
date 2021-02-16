@@ -55,12 +55,14 @@
   cursor: pointer;
   object-fit: contain;
 }
+
 .nav__contents1-navItems {
   list-style: none;
   display: flex;
   color: #fff;
   margin-left: 10px;
 }
+
 .nav__contents1-navItems li {
   margin-left: 40px;
   margin-right: 10px;
@@ -68,12 +70,46 @@
   cursor: pointer;
   transition: all 0.5s;
 }
+
 .nav__contents1-navItems li:hover {
   color: #e50914;
 }
+/* 
+.app__search {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  padding: 0.25rem;
+  padding-left: 0.375rem;
+  border: 1px solid rgba(150, 71, 71, 0.5);
+  border-radius: 99px;
+  transition: width 0.2s;
+  width: calc(2rem + 1px);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.app__search.open {
+  width: 12rem;
+}
+
+.app__searchIcon {
+  margin-right: 0.375rem;
+  color: #e50914;
+}
+
+.app__search input {
+  background: transparent;
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding-right: 0.5rem;
+} */
+
 .nav__contents2 {
   position: relative;
 }
+
 .nav__contents2-profile {
   display: flex;
   align-items: center;

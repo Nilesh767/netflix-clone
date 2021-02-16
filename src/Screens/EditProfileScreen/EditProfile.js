@@ -13,7 +13,7 @@ const EditProfile = () => {
 
   return (
     <div className="EditProfile">
-      <div className="login__logo">
+      <div className="Netflix__logo">
         <NetflixLogo />
       </div>
       <div className="EditProfile__body">
