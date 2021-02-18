@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NetflixLogo from "../../Components/UI/NavBar/Logo/NetflixLogo";
 
-import SignUp from "../SignUpScreen/SignUp";
+import SignUp from "./SignUpScreen/SignUp";
 
 import "./Login.css";
 
@@ -9,17 +9,18 @@ const Login = () => {
   const [signIn, setSignIn] = useState(false);
   const [emailData, setEmailData] = useState("");
 
+  const signInHandler = () => {
+    setSignIn(true);
+  };
+
   return (
     <div className="login">
       <div className="login__bg">
         <div className="login__gradient" />
         <div className="login__logo">
-          <NetflixLogo  />
+          <NetflixLogo />
         </div>
-        <button
-          className="login__signInBtn"
-          onClick={() => setSignIn(true)}
-        >
+        <button className="login__signInBtn" onClick={signInHandler}>
           Sign In
         </button>
         {signIn ? (
@@ -43,7 +44,7 @@ const Login = () => {
                   <button
                     className="login__getStarted"
                     type="submit"
-                    onClick={() => setSignIn(true)}
+                    onClick={signInHandler}
                   >
                     Get Started &gt;
                   </button>

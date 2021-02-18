@@ -74,37 +74,50 @@
 .nav__contents1-navItems li:hover {
   color: #e50914;
 }
-/* 
+
+.nav__searchBar {
+  position: absolute;
+  right: 150px;
+}
+
+.nav__searchBar > ul {
+  margin-top: 5px;
+}
+
 .app__search {
   display: flex;
-  align-items: center;
   background: transparent;
-  padding: 0.25rem;
-  padding-left: 0.375rem;
-  border: 1px solid rgba(150, 71, 71, 0.5);
+  padding: 0.25rem 0 0.3rem 0.375rem;
+  border: 1px solid rgba(229, 9, 20, 0.7);
   border-radius: 99px;
-  transition: width 0.2s;
+  transition: all 0.2s;
   width: calc(2rem + 1px);
   overflow: hidden;
   cursor: pointer;
 }
 
 .app__search.open {
+  margin-left: -160px;
   width: 12rem;
 }
 
 .app__searchIcon {
-  margin-right: 0.375rem;
   color: #e50914;
 }
 
 .app__search input {
-  background: transparent;
+  margin-left: -15px;
+  background: rgba(0, 0, 0, 0.75);
   color: #fff;
   border: none;
   width: 100%;
-  padding-right: 0.5rem;
-} */
+}
+
+@media only screen and (max-width: 430px) {
+  .app__search.open {
+    width: 8rem;
+  }
+}
 
 .nav__contents2 {
   position: relative;

@@ -53,6 +53,11 @@
   opacity: 0.8;
 }
 
+.profile-active {
+  text-decoration: underline #fff;
+  font-weight: 700;
+}
+
 @media only screen and (max-width: 780px) {
   .profiles__body > h1 {
     margin-left: 75px;

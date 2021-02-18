@@ -1,10 +1,14 @@
 import React, { useRef, useState } from "react";
-import { auth } from "../../Firebase/firebase";
+import { useSelector } from "react-redux";
+import Loading from "../../../Components/UI/Loading/Loading";
+import { selectLoading } from "../../../features/userSlice";
+import { auth } from "../../../Firebase/firebase";
 
 import "./SignUp.css";
 
 const SignUp = ({ emailData }) => {
   const [isSignUp, setIsSignUp] = useState(false);
+  const loading = useSelector(selectLoading);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -16,9 +20,6 @@ const SignUp = ({ emailData }) => {
         emailRef.current.value,
         passwordRef.current.value
       )
-      .then((authUser) => {
-        console.log(authUser);
-      })
       .catch((error) => {
         alert(error.message);
       });
@@ -32,9 +33,6 @@ const SignUp = ({ emailData }) => {
         emailRef.current.value,
         passwordRef.current.value
       )
-      .then((authUser) => {
-        console.log(authUser);
-      })
       .catch((error) => {
         alert(error.message);
       });
@@ -50,6 +48,7 @@ const SignUp = ({ emailData }) => {
 
   return (
     <div className="signup">
+      {loading && <Loading />}
       <form>
         <h1>{isSignUp ? "Sign Up" : "Sign In"}</h1>
         <input
