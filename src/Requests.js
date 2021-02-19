@@ -11,9 +11,4 @@ const requests = {
   fetchDocumentries: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
 };
 
- export const fetchSearchString = (query) => {
-  let queryString = encodeURIComponent(query);
-  return `/search/multi?api_key=${API_KEY}&language=en-US&query=${queryString}&page=1&include_adult=false`
-}
-
 export default requests;

@@ -26,11 +26,18 @@
 
 .nav__contents {
   height: 100%;
-  width: 100%;
+  width: 100vw;
   margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media only screen and (max-width: 375px) {
+  .nav__contents {
+    height: 100%;
+    width: 90%;
+  }
 }
 
 .nav__contents svg {
@@ -40,7 +47,7 @@
 }
 
 .nav__contents1 {
-  padding-left: 10%;
+  padding-left: 5%;
   justify-content: center;
 }
 
@@ -126,6 +133,7 @@
 .nav__contents2-profile {
   display: flex;
   align-items: center;
+  justify-content: left;
   margin-right: 20px;
 }
 

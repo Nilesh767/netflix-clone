@@ -1,26 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
+import "react-confirm-alert/src/react-confirm-alert.css";
+
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import SearchIcon from "@material-ui/icons/Search";
-import axios from "axios";
-import { toast } from "react-toastify";
 
 import { auth } from "../../../Firebase/firebase";
-import { fetchSearchString } from "../../../Requests";
 
 import { avatar } from "./Avatar/Avatar";
 import NetflixLogo from "./Logo/NetflixLogo";
 
 import "./Nav.css";
 
-const Nav = (setSearchResult) => {
+const Nav = () => {
   const [show, handleShow] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [input, setInput] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
 
   const inputEl = useRef(null);
-  // const searchEl = useRef(null);
 
   const history = useHistory();
 
@@ -32,27 +30,14 @@ const Nav = (setSearchResult) => {
     }
   };
 
-  const searchQuery = (query) => {
-    history.push("/");
-    axios
-      .get(fetchSearchString(query))
-      .then((response) => {
-        if (response.data.total_results < 1) {
-          toast.warning("No Results Found!");
-        } else {
-          setSearchResult(response.data.results);
-        }
-      })
-      .catch((err) => alert(err.message));
-  };
-
   const handleSearch = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    searchQuery(input);
-    setSearchOpen(false);
-    inputEl.current.blur();
-    setTimeout(() => setInput(""), 100);
+    if (e.key === "Enter") {
+      e.preventDefault();
+      alert(
+        "I am too lazy and uninterested to implement this! \n So... Get Rickrolled Kid!!!"
+      );
+      window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    }
   };
 
   const searchClick = () => {
@@ -104,11 +89,11 @@ const Nav = (setSearchResult) => {
               />
               <form>
                 <input
-                  ref={inputEl}
                   type="search"
-                  value={input}
+                  ref={inputEl}
                   onBlur={() => setSearchOpen(false)}
                   onChange={(e) => setInput(e.target.value)}
+                  onKeyPress={(e) => handleSearch(e)}
                   placeholder="Search..."
                 />
               </form>

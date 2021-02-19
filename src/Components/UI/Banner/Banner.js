@@ -25,6 +25,17 @@ const Banner = () => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   };
 
+  const playButtonHandler = () => {
+    window.location = `https://www.youtube.com/results?search_query=${
+      movie?.title || movie?.name || movie?.original_name
+    }+trailer`;
+  };
+
+  const listButtonHandler = () => {
+    alert("Untill i implement this, get rickrolled!!!");
+    window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+  };
+
   return (
     <header
       className="banner"
@@ -42,8 +53,12 @@ const Banner = () => {
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
         <div className="banner__buttons">
-          <button className="banner__button">Play</button>
-          <button className="banner__button">My List</button>
+          <button className="banner__button" onClick={playButtonHandler}>
+            Play
+          </button>
+          <button className="banner__button" onClick={listButtonHandler}>
+            My List
+          </button>
         </div>
         <h1 className="banner__description">
           {truncate(movie?.overview, 150)}

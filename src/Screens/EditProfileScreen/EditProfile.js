@@ -24,6 +24,7 @@ const EditProfile = () => {
             <h2>{user.email}</h2>
             <div className="EditProfile__plans">
               <h3>Plans</h3>
+              <h4>Gonna implement tomorrow maybe idk...</h4>
               <button
                 className="EditProfile__signOut"
                 type="submit"

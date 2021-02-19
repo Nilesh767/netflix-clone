@@ -55,10 +55,10 @@ const App = () => {
         <Route path="/profiles">
           <Profiles />
         </Route>
-        <Route exact path="/home">
+        <Route exact path="/">
           <Home />
         </Route>
-        <Redirect to="/home" />
+        <Redirect to="/" />
       </Switch>
     );
   }
