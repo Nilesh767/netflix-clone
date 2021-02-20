@@ -7,6 +7,7 @@ import { auth } from "../../Firebase/firebase";
 import "./EditProfile.css";
 import { avatar } from "../../Components/UI/NavBar/Avatar/Avatar";
 import NetflixLogo from "../../Components/UI/NavBar/Logo/NetflixLogo";
+import Plans from "./Plans/Plans";
 
 const EditProfile = () => {
   const user = useSelector(selectUser);
@@ -24,7 +25,7 @@ const EditProfile = () => {
             <h2>{user.email}</h2>
             <div className="EditProfile__plans">
               <h3>Plans</h3>
-              <h4>Gonna implement tomorrow maybe idk...</h4>
+              <Plans />
               <button
                 className="EditProfile__signOut"
                 type="submit"

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
-import "react-confirm-alert/src/react-confirm-alert.css";
 
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import SearchIcon from "@material-ui/icons/Search";
