@@ -83,7 +83,9 @@ const Plans = () => {
       }
 
       if (sessionId) {
-        const stripe = await loadStripe("publisher key");
+        const stripe = await loadStripe(
+          "pk_test_51IMaabHYPjK6zOORpS7hNeKQ9BVGoBFySWWOXtMb2Hzw8mSUaPlwiB75AMjzWM7Pm4SEKtLD9tHyJaISkMA1KE0U00ptcjkmJT"
+        );
         stripe.redirectToCheckout({ sessionId });
       }
     });
