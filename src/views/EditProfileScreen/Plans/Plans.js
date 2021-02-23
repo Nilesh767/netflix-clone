@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectUser } from "../../../features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser, subbed } from "../../../features/userSlice";
 import { loadStripe } from "@stripe/stripe-js";
 import db from "../../../Firebase/firebase";
 
@@ -10,10 +10,11 @@ const Plans = () => {
   const [products, setProducts] = useState([]);
   const [subscription, setSubcription] = useState(null);
   const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     db.collection("customers")
-      .doc(user.uid)
+      .doc(user?.uid)
       .collection("subscriptions")
       .get()
       .then((querySnapshot) => {
@@ -26,7 +27,15 @@ const Plans = () => {
           });
         });
       });
-  }, [user.uid]);
+  }, [user?.uid]);
+
+  useEffect(() => {
+    let userSub;
+    subscription != null
+      ? (userSub = dispatch(subbed(subscription.role)))
+      : (userSub = dispatch(subbed(null)));
+    return userSub;
+  }, [dispatch, subscription]);
 
   useEffect(() => {
     db.collection("products")
@@ -47,6 +56,13 @@ const Plans = () => {
         setProducts(products);
       });
   }, []);
+
+  // useEffect(() => {
+  //   if (subscription)
+  //     alert(
+  //       "Test Card\n Card no: 4242424242424242\n Exp date: 04/24\n cvv: 424"
+  //     );
+  // }, [subscription]);
 
   const loadCheckout = async (priceId) => {
     const docRef = await db
@@ -87,6 +103,7 @@ const Plans = () => {
         const isCurrentPackage = productData.name
           ?.toLowerCase()
           .includes(subscription?.role);
+
         return (
           <div
             className={`${

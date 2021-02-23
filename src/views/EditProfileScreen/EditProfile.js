@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { selectUser } from "../../features/userSlice";
+import { selectSubscription, selectUser } from "../../features/userSlice";
 import { auth } from "../../Firebase/firebase";
 
 import "./EditProfile.css";
@@ -11,6 +11,7 @@ import Plans from "./Plans/Plans";
 
 const EditProfile = () => {
   const user = useSelector(selectUser);
+  const userSubcription = useSelector(selectSubscription);
 
   return (
     <div className="EditProfile">
@@ -24,7 +25,7 @@ const EditProfile = () => {
           <div className="EditProfile__details">
             <h2>{user.email}</h2>
             <div className="EditProfile__plans">
-              <h3>Plans</h3>
+              <h3>Plans: {userSubcription ? userSubcription : "None"}</h3>
               <Plans />
               <button
                 className="EditProfile__signOut"

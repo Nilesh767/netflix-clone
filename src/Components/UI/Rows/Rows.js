@@ -1,5 +1,5 @@
 import React from "react";
-import requests from "../../../Requests";
+import requests from "../../../api/Requests";
 import Row from "./Row/Row";
 
 const Rows = () => {

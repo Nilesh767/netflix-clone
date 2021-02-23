@@ -17,7 +17,7 @@ const Login = () => {
     <div className="login">
       <div className="login__bg">
         <div className="login__gradient" />
-        <div className="login__logo">
+        <div className="login__logo" >
           <NetflixLogo />
         </div>
         <button className="login__signInBtn" onClick={signInHandler}>

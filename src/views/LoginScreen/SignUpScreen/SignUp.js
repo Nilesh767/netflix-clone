@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import Loading from "../../../Components/UI/Loading/Loading";
 import { selectLoading } from "../../../features/userSlice";
 import { auth } from "../../../Firebase/firebase";
@@ -11,10 +12,10 @@ const SignUp = ({ emailData }) => {
   const loading = useSelector(selectLoading);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const history = useHistory();
 
   const signIn = (event) => {
     event.preventDefault();
-
     auth
       .signInWithEmailAndPassword(
         emailRef.current.value,
@@ -23,11 +24,11 @@ const SignUp = ({ emailData }) => {
       .catch((error) => {
         alert(error.message);
       });
+    history.push("/editProfile");
   };
 
   const register = (event) => {
     event.preventDefault();
-
     auth
       .createUserWithEmailAndPassword(
         emailRef.current.value,
@@ -36,6 +37,7 @@ const SignUp = ({ emailData }) => {
       .catch((error) => {
         alert(error.message);
       });
+    history.push("/editProfile");
   };
 
   const signUpHandler = () => {

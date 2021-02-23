@@ -62,7 +62,7 @@ const Nav = () => {
   return (
     <div className={`nav ${show && "nav__black"}`}>
       <div className="nav__contents">
-        <div className="nav__logo">
+        <div className="nav__logo" onClick={() => history.push("/")}>
           <NetflixLogo />
         </div>
         <div className="nav__contents1">

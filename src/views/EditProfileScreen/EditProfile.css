@@ -7,8 +7,8 @@
   position: fixed;
   object-fit: contain;
   width: 150px;
-  top: 45px;
-  left: 40px;
+  top: 35px;
+  left: 30px;
   padding-left: 20px;
   cursor: pointer;
 }
@@ -19,7 +19,7 @@
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 10%;
+  padding-top: 5%;
   max-width: 800px;
 }
 

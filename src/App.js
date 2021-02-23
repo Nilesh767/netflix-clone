@@ -3,24 +3,24 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "./Firebase/firebase";
 
-import { login, logout, selectUser } from "./features/userSlice";
+import {
+  login,
+  logout,
+  selectSubscription,
+  selectUser,
+} from "./features/userSlice";
 
 import Aux from "./hoc/Auxiliary";
-import Home from "./Screens/HomeScreen/Home";
-import Login from "./Screens/LoginScreen/Login";
+import Login from "./views/LoginScreen/Login";
+import EditProfile from "./views/EditProfileScreen/EditProfile";
+import Home from "./views/HomeScreen/Home";
+import Profiles from "./views/Profiles/Profiles";
 
 import "./App.css";
 
-const EditProfile = React.lazy(() => {
-  return import("./Screens/EditProfileScreen/EditProfile");
-});
-
-const Profiles = React.lazy(() => {
-  return import("./Screens/Profiles/Profiles");
-});
-
 const App = () => {
   const user = useSelector(selectUser);
+  const userSubcription = useSelector(selectSubscription);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,10 +39,10 @@ const App = () => {
 
   let routes = (
     <Switch>
-      <Route exact path="/login">
-        <Login />
+      <Route>
+        <Login path="/" />
       </Route>
-      <Redirect to="/login" />
+      <Redirect to="/" />
     </Switch>
   );
 
@@ -52,13 +52,19 @@ const App = () => {
         <Route path="/editProfile">
           <EditProfile />
         </Route>
-        <Route path="/profiles">
-          <Profiles />
-        </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Redirect to="/" />
+
+        {userSubcription ? (
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/Profiles">
+              <Profiles />
+            </Route>
+          </Switch>
+        ) : (
+          <Redirect to="/editProfile" />
+        )}
       </Switch>
     );
   }
