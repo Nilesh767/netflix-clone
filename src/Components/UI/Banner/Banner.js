@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import axios from "../../../api/axios";
 import requests from "../../../api/Requests";
@@ -7,6 +8,7 @@ import "./Banner.css";
 
 const Banner = () => {
   const [movie, setMovie] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     async function fetchData() {
@@ -32,8 +34,7 @@ const Banner = () => {
   };
 
   const listButtonHandler = () => {
-    alert("Untill i implement this, get rickrolled!!!");
-    window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    history.push("/watchList");
   };
 
   return (

@@ -14,9 +14,10 @@ import Aux from "./hoc/Auxiliary";
 import Login from "./views/LoginScreen/Login";
 import EditProfile from "./views/EditProfileScreen/EditProfile";
 import Home from "./views/HomeScreen/Home";
-import Profiles from "./views/Profiles/Profiles";
+import Profiles from "./views/ProfilesScreen/Profiles";
 
 import "./App.css";
+import WatchList from "./views/WatchListScreen/WatchList";
 
 const App = () => {
   const user = useSelector(selectUser);
@@ -58,9 +59,13 @@ const App = () => {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/Profiles">
+            <Route exact path="/profiles">
               <Profiles />
             </Route>
+            <Route exact path="/watchList">
+              <WatchList />
+            </Route>
+            <Redirect to="/" />
           </Switch>
         ) : (
           <Redirect to="/editProfile" />
