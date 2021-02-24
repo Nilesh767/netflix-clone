@@ -8,13 +8,6 @@ import "./Profiles.css";
 const avatar1 = generator.generateRandomAvatar();
 const avatar2 = generator.generateRandomAvatar();
 
-const rickroll = () => {
-  alert(
-    "I am too lazy and uninterested to implement this! \n So... Get Rickrolled Kid!!!"
-  );
-  window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-};
-
 const Profiles = () => {
   return (
     <div className="profiles">
@@ -38,12 +31,36 @@ const Profiles = () => {
             </h3>
           </div>
           <div className="profiles__profile  ">
-            <img src={avatar1} alt="avatar" onClick={rickroll} />
-            <h3 onClick={rickroll}>Neon</h3>
+            <img
+              src={avatar1}
+              alt="avatar"
+              onClick={() =>
+                alert("I am too lazy and uninterested to implement this!")
+              }
+            />
+            <h3
+              onClick={() =>
+                alert("I am too lazy and uninterested to implement this!")
+              }
+            >
+              Neon
+            </h3>
           </div>
           <div className="profiles__profile ">
-            <img src={avatar2} alt="avatar" onClick={rickroll} />
-            <h3 onClick={rickroll}>Nil</h3>
+            <img
+              src={avatar2}
+              alt="avatar"
+              onClick={() =>
+                alert("I am too lazy and uninterested to implement this!")
+              }
+            />
+            <h3
+              onClick={() =>
+                alert("I am too lazy and uninterested to implement this!")
+              }
+            >
+              Nil
+            </h3>
           </div>
         </div>
       </div>

@@ -126,6 +126,7 @@ const Nav = () => {
                   </p>
                 </div>
                 <ul className="nav__dropdown-account">
+                  <li onClick={() => history.push("/watchList")}>Watch List</li>
                   <li onClick={() => history.push("/editProfile")}>Account</li>
                   <li onClick={() => auth.signOut()}>Sign out of Netflix</li>
                 </ul>

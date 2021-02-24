@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Loading from "../../../Components/UI/Loading/Loading";
-import { selectLoading } from "../../../features/userSlice";
+import { selectLoading, selectSubscription } from "../../../features/userSlice";
 import { auth } from "../../../Firebase/firebase";
 
 import "./SignUp.css";
@@ -10,6 +10,7 @@ import "./SignUp.css";
 const SignUp = ({ emailData }) => {
   const [isSignUp, setIsSignUp] = useState(false);
   const loading = useSelector(selectLoading);
+  const userSubcription = useSelector(selectSubscription);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const history = useHistory();
@@ -24,7 +25,8 @@ const SignUp = ({ emailData }) => {
       .catch((error) => {
         alert(error.message);
       });
-    history.push("/editProfile");
+
+    !userSubcription ? history.push("/editProfile") : history.push("/");
   };
 
   const register = (event) => {
@@ -37,6 +39,7 @@ const SignUp = ({ emailData }) => {
       .catch((error) => {
         alert(error.message);
       });
+
     history.push("/editProfile");
   };
 

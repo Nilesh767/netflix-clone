@@ -27,6 +27,7 @@ const WatchList = () => {
       <Nav />
       <div className="watchList__container">
         <div className="watchList__listContainer">
+          <h1>WatchList</h1>
           {watchList.map((item) => (
             <div className="watchList__item" key={item.id}>
               <Checkbox
@@ -46,7 +47,9 @@ const WatchList = () => {
             value={input}
             onChange={(event) => setInput(event.target.value)}
           />
-          <button onClick={addItemHandler}>Add</button>
+          <button onClick={addItemHandler} type="submit">
+            Add
+          </button>
         </div>
       </div>
     </div>
