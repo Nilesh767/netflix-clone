@@ -1,14 +1,9 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { auth } from "./Firebase/firebase";
+import db, { auth } from "./Firebase/firebase";
 
-import {
-  login,
-  logout,
-  selectSubscription,
-  selectUser,
-} from "./features/userSlice";
+import { login, logout, selectUser, subbed } from "./features/userSlice";
 
 import Aux from "./hoc/Auxiliary";
 import Login from "./views/LoginScreen/Login";
@@ -20,8 +15,8 @@ import "./App.css";
 import WatchList from "./views/WatchListScreen/WatchList";
 
 const App = () => {
+  const [subscription, setSubcription] = useState(null);
   const user = useSelector(selectUser);
-  const userSubcription = useSelector(selectSubscription);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,42 +33,68 @@ const App = () => {
     return unSubscribe;
   }, [dispatch]);
 
-  let routes = (
-    <Switch>
-      <Route>
-        <Login path="/" />
-      </Route>
-      <Redirect to="/" />
-    </Switch>
-  );
+  useEffect(() => {
+    db.collection("customers")
+      .doc(user?.uid)
+      .collection("subscriptions")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach(async (subscriptions) => {
+          setSubcription({
+            role: subscriptions.data().role,
+            current_period_end: subscriptions.data().current_period_end.seconds,
+            current_period_start: subscriptions.data().current_period_start
+              .seconds,
+          });
+        });
+      });
+  }, [user?.uid]);
 
-  if (user) {
+  useEffect(() => {
+    let userSub;
+    subscription != null
+      ? (userSub = dispatch(subbed(subscription.role)))
+      : (userSub = dispatch(subbed(null)));
+    return userSub;
+  }, [dispatch, subscription]);
+
+  let routes = null;
+  if (user && subscription) {
+    routes = (
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/profiles">
+          <Profiles />
+        </Route>
+        <Route exact path="/watchList">
+          <WatchList />
+        </Route>
+        <Route path="/editProfile">
+          <EditProfile />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
+    );
+  } else if (user) {
     routes = (
       <Switch>
         <Route path="/editProfile">
           <EditProfile />
         </Route>
-
-        {userSubcription ? (
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/profiles">
-              <Profiles />
-            </Route>
-            <Route exact path="/watchList">
-              <WatchList />
-            </Route>
-            <Redirect to="/" />
-          </Switch>
-        ) : (
-          <Redirect to="/editProfile" />
-        )}
+      </Switch>
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Route>
+          <Login path="/" />
+        </Route>
+        <Redirect to="/" />
       </Switch>
     );
   }
-
   return (
     <div className="app">
       <Aux>
