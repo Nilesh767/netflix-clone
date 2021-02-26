@@ -4,6 +4,7 @@ import NetflixLogo from "../../Components/UI/NavBar/Logo/NetflixLogo";
 import SignUp from "./SignUpScreen/SignUp";
 
 import "./Login.css";
+import { ToastContainer } from "react-toastify";
 
 const Login = () => {
   const [signIn, setSignIn] = useState(false);
@@ -17,7 +18,7 @@ const Login = () => {
     <div className="login">
       <div className="login__bg">
         <div className="login__gradient" />
-        <div className="login__logo" >
+        <div className="login__logo">
           <NetflixLogo />
         </div>
         <button className="login__signInBtn" onClick={signInHandler}>
@@ -54,6 +55,17 @@ const Login = () => {
           </div>
         )}
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };

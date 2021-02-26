@@ -10,6 +10,7 @@ import { avatar } from "./Avatar/Avatar";
 import NetflixLogo from "./Logo/NetflixLogo";
 
 import "./Nav.css";
+import { toast } from "react-toastify";
 
 const Nav = () => {
   const [show, handleShow] = useState(false);
@@ -32,7 +33,7 @@ const Nav = () => {
   const handleSearch = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      alert(
+      toast.info(
         "I am too lazy and uninterested to implement this! \n So... Get Rickrolled Kid!!!"
       );
       window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 import Loading from "../../../Components/UI/Loading/Loading";
 import { selectLoading, selectSubscription } from "../../../features/userSlice";
 import { auth } from "../../../Firebase/firebase";
@@ -23,7 +24,7 @@ const SignUp = ({ emailData }) => {
         passwordRef.current.value
       )
       .catch((error) => {
-        alert(error.message);
+        toast.error(error.message);
       });
 
     !userSubcription ? history.push("/editProfile") : history.push("/");
@@ -37,7 +38,7 @@ const SignUp = ({ emailData }) => {
         passwordRef.current.value
       )
       .catch((error) => {
-        alert(error.message);
+        toast.error(error.message);
       });
 
     history.push("/editProfile");

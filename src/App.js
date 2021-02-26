@@ -10,9 +10,9 @@ import Login from "./views/LoginScreen/Login";
 import EditProfile from "./views/EditProfileScreen/EditProfile";
 import Home from "./views/HomeScreen/Home";
 import Profiles from "./views/ProfilesScreen/Profiles";
+import WatchList from "./views/WatchListScreen/WatchList";
 
 import "./App.css";
-import WatchList from "./views/WatchListScreen/WatchList";
 
 const App = () => {
   const [subscription, setSubcription] = useState(null);
@@ -83,6 +83,7 @@ const App = () => {
         <Route path="/editProfile">
           <EditProfile />
         </Route>
+        <Redirect to="/editProfile" />
       </Switch>
     );
   } else {

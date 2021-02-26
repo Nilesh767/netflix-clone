@@ -2,13 +2,16 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { selectSubscription } from "../../../../features/userSlice";
+import { toast } from "react-toastify";
 
 const NetflixLogo = () => {
   const userSubcription = useSelector(selectSubscription);
   const history = useHistory();
 
   const onLogoClickHandler = () => {
-    !userSubcription ? alert("You need to be Subscribed") : history.push("/");
+    !userSubcription
+      ? toast.error("You need to be Subscribed")
+      : history.push("/");
   };
 
   return (

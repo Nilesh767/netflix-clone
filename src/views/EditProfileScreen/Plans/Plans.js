@@ -5,6 +5,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import db from "../../../Firebase/firebase";
 
 import "./Plans.css";
+import { toast } from "react-toastify";
 
 const Plans = () => {
   const [products, setProducts] = useState([]);
@@ -57,13 +58,6 @@ const Plans = () => {
       });
   }, []);
 
-  // useEffect(() => {
-  //   if (subscription)
-  //     alert(
-  //       "Test Card\n Card no: 4242424242424242\n Exp date: 04/24\n cvv: 424"
-  //     );
-  // }, [subscription]);
-
   const loadCheckout = async (priceId) => {
     const docRef = await db
       .collection("customers")
@@ -79,7 +73,7 @@ const Plans = () => {
       const { error, sessionId } = snap.data();
 
       if (error) {
-        alert(`An error Occured: ${error.message}`);
+        toast.error(`An error Occured: ${error.message}`);
       }
 
       if (sessionId) {
