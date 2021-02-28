@@ -5,7 +5,7 @@ import axios from "../../../../api/axios";
 import "./Row.css";
 
 function Row({ title, fetchUrl, isLargeRow }) {
-  const img_url = "https://image.tmdb.org/t/p/original";
+  const img_url = "https://image.tmdb.org/t/p/w500";
 
   const [movies, setMovies] = useState([]);
 

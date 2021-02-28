@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 import { useHistory } from "react-router-dom";
 
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
@@ -10,7 +11,6 @@ import { avatar } from "./Avatar/Avatar";
 import NetflixLogo from "./Logo/NetflixLogo";
 
 import "./Nav.css";
-import { toast } from "react-toastify";
 
 const Nav = () => {
   const [show, handleShow] = useState(false);
@@ -33,10 +33,8 @@ const Nav = () => {
   const handleSearch = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      toast.info(
-        "I am too lazy and uninterested to implement this! \n So... Get Rickrolled Kid!!!"
-      );
-      window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+      toast.dark("Yet to implement");
+      // history.push('/result')
     }
   };
 
@@ -69,9 +67,9 @@ const Nav = () => {
         <div className="nav__contents1">
           <ul className="nav__contents1-navItems">
             <li onClick={() => history.push("/")}>Home</li>
-            <li>TV Shows</li>
-            <li>Movies</li>
-            <li>New & Popular</li>
+            <li onClick={() => {toast.dark("Yet to implement")}}>TV Shows</li>
+            <li onClick={() => {toast.dark("Yet to implement")}}>Movies</li>
+            <li onClick={() => {toast.dark("Yet to implement")}}>New & Popular</li>
           </ul>
         </div>
         <div className="nav__searchBar">
@@ -136,6 +134,17 @@ const Nav = () => {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pa
+      />
     </div>
   );
 };

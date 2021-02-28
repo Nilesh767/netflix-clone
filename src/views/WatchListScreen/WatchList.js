@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { save, selectWatchList, setCheck } from "../../features/listSlice";
 
-import "./WatchList.css";
 import Nav from "../../Components/UI/NavBar/Nav";
+
+import "./WatchList.css";
 
 const WatchList = () => {
   const [input, setInput] = useState("");

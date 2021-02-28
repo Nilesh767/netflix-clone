@@ -25,7 +25,7 @@ const EditProfile = () => {
   };
 
   useEffect(() => {
-    userSubcription
+    !userSubcription
       ? toast.info(
           `Test Data values for Subscription Card number: 4242424242424242 Exp date: 04/24 Cvv: 424`,
           { autoClose: 60000 }

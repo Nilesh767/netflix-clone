@@ -2,9 +2,11 @@ import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import Loading from "../../../Components/UI/Loading/Loading";
-import { selectLoading, selectSubscription } from "../../../features/userSlice";
+
 import { auth } from "../../../Firebase/firebase";
+import { selectLoading, selectSubscription } from "../../../features/userSlice";
+
+import Loading from "../../../Components/UI/Loading/Loading";
 
 import "./SignUp.css";
 
