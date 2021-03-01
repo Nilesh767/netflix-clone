@@ -27,7 +27,6 @@
   cursor: pointer;
   transition: transform 450ms;
   padding: 40px 40px 40px 40px;
-  z-index: 100;
 }
 
 .result__poster:hover {

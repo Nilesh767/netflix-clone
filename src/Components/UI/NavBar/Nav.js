@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import SearchIcon from "@material-ui/icons/Search";
 
 import { auth } from "../../../Firebase/firebase";
+import { category } from "../../../features/componentSlice";
 
 import { avatar } from "./Avatar/Avatar";
 import NetflixLogo from "./Logo/NetflixLogo";
@@ -17,6 +19,8 @@ const Nav = () => {
   const [dropdown, setDropdown] = useState(false);
   const [input, setInput] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
+
+  const dispatch = useDispatch();
 
   const inputEl = useRef(null);
 
@@ -66,10 +70,10 @@ const Nav = () => {
         </div>
         <div className="nav__contents1">
           <ul className="nav__contents1-navItems">
-            <li onClick={() => history.push("/")}>Home</li>
-            <li onClick={() => {toast.dark("Yet to implement")}}>TV Shows</li>
-            <li onClick={() => {toast.dark("Yet to implement")}}>Movies</li>
-            <li onClick={() => {toast.dark("Yet to implement")}}>New & Popular</li>
+            <li onClick={() => dispatch(category("home"))}>Home</li>
+            <li onClick={() => dispatch(category("show"))}>TV Shows</li>
+            <li onClick={() => dispatch(category("movies"))}>Movies</li>
+            <li onClick={() => dispatch(category("new"))}>New & Popular</li>
           </ul>
         </div>
         <div className="nav__searchBar">

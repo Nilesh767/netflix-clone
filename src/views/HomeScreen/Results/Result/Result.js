@@ -4,7 +4,7 @@ import axios from "../../../../api/axios";
 
 import "./Result.css";
 
-const Result = ({ title, fetchUrl, isLargeRow, type }) => {
+const Result = ({ title, fetchUrl }) => {
   const img_url = "https://image.tmdb.org/t/p/w500";
 
   const [movies, setMovies] = useState([]);
@@ -18,7 +18,6 @@ const Result = ({ title, fetchUrl, isLargeRow, type }) => {
     fetchData();
   }, [fetchUrl]);
 
-  console.log(type);
   return (
     <div className="result">
       <h2 className="result__title">{title}</h2>

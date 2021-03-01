@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 import Banner from "../../Components/UI/Banner/Banner";
 import Nav from "../../Components/UI/NavBar/Nav";
 import Rows from "../../Components/UI/Rows/Rows";
+import { selectComponent } from "../../features/componentSlice";
 
 import "./Home.css";
 import Results from "./Results/Results";
 
 const Home = () => {
-  const [showResult, setShowResult] = useState(true);
-
-  const resultHandler = () => {};
+  const component = useSelector(selectComponent);
 
   return (
     <div>
       <div>
         <Nav />
       </div>
-      {showResult ? (
-        <Results />
+      {component !== "home" ? (
+        <Results compType={component} />
       ) : (
         <div>
           <div>

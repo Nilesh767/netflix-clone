@@ -1,20 +1,21 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 import { discover } from "../../../api/Requests";
 
 import Result from "./Result/Result";
 
-const Results = () => {
-  let compType = "e";
-
+const Results = ({ compType }) => {
   return (
     <div>
       {compType === "movies" ? (
         <Result title="Movies" fetchUrl={discover.fetchMovies} />
-      ) : compType === "shows" ? (
+      ) : compType === "show" ? (
         <Result title="TV Shows" fetchUrl={discover.fetchShows} />
-      ) : (
+      ) : compType === "new" ? (
         <Result title="New and Popular" fetchUrl={discover.fetchNew} />
+      ) : (
+        toast.error("Error Occured")
       )}
     </div>
   );
