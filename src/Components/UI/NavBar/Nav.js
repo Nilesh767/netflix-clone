@@ -70,7 +70,14 @@ const Nav = () => {
         </div>
         <div className="nav__contents1">
           <ul className="nav__contents1-navItems">
-            <li onClick={() => dispatch(category("home"))}>Home</li>
+            <li
+              onClick={() => {
+                dispatch(category("home"));
+                history.push("/");
+              }}
+            >
+              Home
+            </li>
             <li onClick={() => dispatch(category("show"))}>TV Shows</li>
             <li onClick={() => dispatch(category("movies"))}>Movies</li>
             <li onClick={() => dispatch(category("new"))}>New & Popular</li>
