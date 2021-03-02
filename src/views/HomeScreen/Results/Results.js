@@ -1,7 +1,6 @@
 import React from "react";
-import { toast } from "react-toastify";
 
-import { discover } from "../../../api/Requests";
+import { discover, fetchSearchString } from "../../../api/Requests";
 
 import Result from "./Result/Result";
 
@@ -15,7 +14,7 @@ const Results = ({ compType }) => {
       ) : compType === "new" ? (
         <Result title="New and Popular" fetchUrl={discover.fetchNew} />
       ) : (
-        toast.error("Error Occured")
+        <Result title="Search Results" fetchUrl={fetchSearchString(compType)} />
       )}
     </div>
   );

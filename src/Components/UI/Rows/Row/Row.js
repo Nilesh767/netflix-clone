@@ -32,6 +32,14 @@ function Row({ title, fetchUrl, isLargeRow }) {
                 src={`${img_url}${
                   isLargeRow ? movie.poster_path : movie.backdrop_path
                 }`}
+                onClick={() =>
+                  (document.location = `https://www.youtube.com/results?search_query=${
+                    movie.title ||
+                    movie.original_title ||
+                    movie.name ||
+                    movie.original_name
+                  }`)
+                }
                 alt={movie.name}
               />
             )

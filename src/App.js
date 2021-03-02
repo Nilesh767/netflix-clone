@@ -77,13 +77,12 @@ const App = () => {
         <Redirect to="/" />
       </Switch>
     );
-  } else if (user) {
+  } else if (user && !subscription) {
     routes = (
       <Switch>
         <Route path="/editProfile">
           <EditProfile />
         </Route>
-        <Redirect to="/editProfile" />
       </Switch>
     );
   } else {

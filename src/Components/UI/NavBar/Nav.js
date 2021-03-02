@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -37,8 +37,7 @@ const Nav = () => {
   const handleSearch = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      toast.dark("Yet to implement");
-      // history.push('/result')
+      dispatch(category(input));
     }
   };
 

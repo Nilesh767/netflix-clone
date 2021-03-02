@@ -43,7 +43,9 @@ const Banner = () => {
       style={{
         backgroundSize: "cover",
         backgroundPosition: "inherit",
-        backgroundImage: `url("https://image.tmdb.org/t/p/w1280/${movie?.backdrop_path}")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/w1280/${
+          movie?.backdrop_path || movie?.poster_path
+        }")`,
       }}
     >
       <br />
