@@ -4,15 +4,12 @@ import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { auth } from "../../../Firebase/firebase";
-import { selectLoading, selectSubscription } from "../../../features/userSlice";
-
-import Loading from "../../../Components/UI/Loading/Loading";
+import { selectSubscription } from "../../../features/userSlice";
 
 import "./SignUp.css";
 
 const SignUp = ({ emailData }) => {
   const [isSignUp, setIsSignUp] = useState(false);
-  const loading = useSelector(selectLoading);
   const userSubcription = useSelector(selectSubscription);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -56,7 +53,6 @@ const SignUp = ({ emailData }) => {
 
   return (
     <div className="signup">
-      {loading && <Loading />}
       <form>
         <h1>{isSignUp ? "Sign Up" : "Sign In"}</h1>
         <input
